@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>出馬表</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'race_app/race_card.css' %}">
+</head>
+<body>
+    <h1>出馬表</h1>
+    {% for race in races %}
+        <h2>{{ race.date|date:"Y/m/d" }} - {{ race.location }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>馬番</th>
+                    <th>馬名</th>
+                    <th>性齢</th>
+                    <th>斤量</th>
+                    <th>騎手</th>
+                    <th>厩舎</th>
+                    <th>馬体重 (増減)</th>
+                    <th>オッズ</th>
+                    <th>人気</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for horse in race.horse_set.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ horse.name }}</td>
+                        <td>{{ horse.age }}</td>
+                        <td>{{ horse.weight }}</td>
+                        <td>{{ horse.jockey }}</td>
+                        <td>{{ horse.trainer }}</td>
+                        <td>{{ horse.body_weight }} ({{ horse.body_weight_change }})</td>
+                        <td>{{ horse.odds }}</td>
+                        <td>{{ horse.popularity }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>

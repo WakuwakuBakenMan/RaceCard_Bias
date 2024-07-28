@@ -1,0 +1,46 @@
+/* 全体的なスタイル */
+body {
+    font-family: "MS PGothic", Osaka, sans-serif; /* JRA-VANで使用されているフォント */
+    line-height: 1.4;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc; /* JRA-VANの薄いグレーの枠線 */
+    padding: 6px 8px; /* セルの余白を少し狭く */
+    vertical-align: middle; /* セル内のテキストを中央揃え */
+}
+
+th {
+    background-color: #f0f0f0; /* ヘッダー行の背景色 */
+    font-weight: bold;
+}
+
+/* 馬番、馬体重、オッズ、人気のセルのスタイル */
+td:nth-child(1),  /* 馬番 */
+td:nth-child(7),  /* 馬体重 */
+td:nth-child(8),  /* オッズ */
+td:nth-child(9) { /* 人気 */
+    text-align: center;
+}
+
+/* オッズのセルのスタイル */
+td:nth-child(8) {
+    font-weight: bold;
+}
+
+/* 人気のセルのスタイル */
+td:nth-child(9) {
+    background-color: #ffffcc; /* 人気の背景色を黄色に */
+}
